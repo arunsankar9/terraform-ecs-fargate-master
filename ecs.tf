@@ -36,7 +36,7 @@ resource "aws_ecs_task_definition" "app" {
     }]
 
     environment = [
-      { name = "DB_HOST", value = aws_db_instance.rds_instance.rds_endpoint },
+      { name = "DB_HOST", value = tostring(aws_db_instance.rds_instance.rds_endpoint) },
       { name = "DB_USER", value = "root" },
       { name = "DB_PASSWORD", value = "password" },
       { name = "DB_NAME", value = "user_management" },
